@@ -608,7 +608,6 @@ isPrime(200) //=> false
 // Your solution for 20-isPrime here:
 const isPrime = num => {
   if (num === 2 ||	num === 3 ||	num === 5	|| num === 7 ||	num === 11) {
-    console.log(num, 'hit')  
     return true 
   }
   if (
@@ -619,9 +618,7 @@ const isPrime = num => {
     num % 5 === 0 ||
     num % 7 === 0 || 
     num % 11 === 0) {
-      console.log(num, " false")
     return false }
-    console.log(num, " true")
   return true
 }
 /*-----------------------------------------------------------------
@@ -776,10 +773,16 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
 isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
-
-
-
-
+const isWinningTicket = (arr) => {
+  const hasAFalse = arr.find(array => {
+    const [str, int] = array
+    return (!str.includes(String.fromCharCode(int)))
+  })
+  if (hasAFalse)
+    return false
+  else
+    return true
+}
 
 /*-----------------------------------------------------------------
 Challenge: 25-getNumForIP
