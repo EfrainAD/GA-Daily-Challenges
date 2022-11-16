@@ -842,11 +842,11 @@ toCamelCase( 'Mama-mia' ) // => 'MamaMia'
 toCamelCase( 'A_b_c' ) // => 'ABC'
 -----------------------------------------------------------------*/
 // Your solution for 26-toCamelCase here:
-
-
-
-
-
+const toCamelCase = (str) => {
+  return str.replace(/[_-]\w/g, (slice) => {
+    return slice[1].toUpperCase()
+  })
+}
 /*-----------------------------------------------------------------
 Challenge: 27-countTheBits
 
