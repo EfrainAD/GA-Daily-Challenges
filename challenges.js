@@ -872,7 +872,12 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
-
+const countTheBits = (num) => {
+  const theOnes = num.toString(2).match(/['1']/g)
+  if (theOnes)
+    return theOnes.length
+  return 0
+}
 
 
 
