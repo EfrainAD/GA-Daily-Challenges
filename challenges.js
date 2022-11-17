@@ -878,10 +878,6 @@ const countTheBits = (num) => {
     return theOnes.length
   return 0
 }
-
-
-
-
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 
@@ -905,11 +901,25 @@ gridTrip( [5, 10], 'D5L15U2' ) //-> [2, -5]
 gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
+const gridTrip = ( coord, directions ) => {
+  let x = coord[0]
+  let y = coord[1]
+  
+  x += directions.match(/['U']\d+/g)
+    ?.map(dir => Number.parseInt(dir.replace(/\D/, '')))
+    .reduce((sum, num) => num + sum) || 0
+  x -= directions.match(/['D']\d+/g)
+    ?.map(dir => Number.parseInt(dir.replace(/\D/, '')))
+    .reduce((sum, num) => num + sum) || 0
+  y += directions.match(/['R']\d+/g)
+    ?.map(dir => Number.parseInt(dir.replace(/\D/, '')))
+    .reduce((sum, num) => num + sum) || 0
+  y -= directions.match(/['L']\d+/g)
+    ?.map(dir => Number.parseInt(dir.replace(/\D/, '')))
+    .reduce((sum, num) => num + sum) || 0
 
-
-
-
-
+  return [x, y]
+}
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
 
