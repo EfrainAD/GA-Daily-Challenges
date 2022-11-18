@@ -990,10 +990,10 @@ const totalTaskTime = (stack, channels ) => {
     while (currentStack.length !== channels && stack.length > 0) {
       currentStack.push(stack.shift())
     }
-    currentStack = currentStack?.map(x => x-1).filter(x => x > 0)
+    currentStack = currentStack?.map(x => x-1).filter(x => x)
     clock++
   } while (currentStack.length > 0 || stack.length > 0) 
-  
+
   return clock
 }
 
