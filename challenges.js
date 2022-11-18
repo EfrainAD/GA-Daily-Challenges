@@ -904,7 +904,7 @@ gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 const gridTrip = ( coord, directions ) => {
   let x = coord[0]
   let y = coord[1]
-  
+
   x += directions.match(/['U']\d+/g)
     ?.map(dir => Number.parseInt(dir.replace(/\D/, '')))
     .reduce((sum, num) => num + sum) || 0
@@ -945,11 +945,15 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
-
-
-
-
-
+const addChecker = (arr, num) => {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i+1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === num)
+        return true
+    }
+  }
+  return false
+}
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
 
